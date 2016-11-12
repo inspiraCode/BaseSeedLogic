@@ -1,0 +1,22 @@
+<div class="container" style="max-width: 350px;">
+    <form class="form-login" role="form" ng-submit="signUp()">
+        <h2 class="form-login-heading">New User</h2>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Username" data-ng-model="registration.UserName" required autofocus>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Password" data-ng-model="registration.Password" required>
+        </div>
+        <div class="form-group">
+            <input type="password" class="form-control" placeholder="Confirm Password" data-ng-model="registration.ConfirmPassword" required>
+        </div>
+        <div class="form-group">
+            <input type="submit" class="btn btn-lg btn-info btn-block" />
+        </div>
+        <br>
+        <br>
+        <div data-ng-hide="message == ''" data-ng-class="(savedSuccessfully) ? 'alert alert-success' : 'alert alert-danger'">
+            {{message}}
+        </div>
+    </form>
+</div>
