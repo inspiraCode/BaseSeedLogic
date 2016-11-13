@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using Microsoft.Owin.Security.OAuth;
 using System.Security.Claims;
-using Microsoft.AspNet.Identity.EntityFramework;
 using Reusable;
 using BusinessSpecificLogic;
 
@@ -23,16 +22,16 @@ namespace ReusableWebAPI.Auth
         {
             context.OwinContext.Response.Headers.Add("Access-Control-Allow-Origin", new[] { "*" });
 
-            using (AuthRepository _repo = new AuthRepository())
-            {
-                IdentityUser user = await _repo.FindUser(context.UserName, context.Password);
+            //using (AuthRepository _repo = new AuthRepository())
+            //{
+            //    IdentityUser user = await _repo.FindUser(context.UserName, context.Password);
 
-                if (user == null)
-                {
-                    context.SetError("invalid_grant", "The user name or password is incorrect.");
-                    return;
-                }
-            }
+            //    if (user == null)
+            //    {
+            //        context.SetError("invalid_grant", "The user name or password is incorrect.");
+            //        return;
+            //    }
+            //}
 
 
             using (var mainContext = new MainContext())

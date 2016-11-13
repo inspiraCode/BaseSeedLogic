@@ -23,10 +23,12 @@ angular.module('appApp').controller('LoginCtrl', function($scope, $location, aut
 
     $scope.login = function() {
         $activityIndicator.startAnimating();
+        $scope.message = '';
         authService.login($scope.loginData).then(function(response) {
                 $location.path('/');
             },
             function(err) {
+                $activityIndicator.stopAnimating();
                 $scope.message = err.error_description;
             });
     };

@@ -12,10 +12,12 @@
             <label for="txtPassword">Password</label>
             <input type="password" id="txtPassword" class="form-control" placeholder="Password" data-ng-model="loginData.password" required>
         </div>
-        <button class="btn btn-lg btn-info btn-block" type="submit" data-ng-click="login()">Login</button>
+        <button class="btn btn-lg btn-info btn-block" type="submit" data-ng-click="login()" style="height: 70px;">
+            <span style="display: inline-block;height: 40px;vertical-align: middle;">Login</span><span ng-activity-indicator style="margin-left: 10px;display: inline-block;padding-top: 8px;height:40px;"></span>
+        </button>
         <br>
         <br>
-        <div data-ng-hide="message == ''" class="alert alert-danger">
+        <div data-ng-hide="message == ''" class="alert alert-danger" style="word-break: break-word;">
             {{message}}
         </div>
     </form>

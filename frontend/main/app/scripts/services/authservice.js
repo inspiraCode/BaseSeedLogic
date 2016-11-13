@@ -52,9 +52,17 @@ angular.module('appApp').factory('authService', function($http, $q, localStorage
             });
 
 
-
         }).error(function(err, status) {
             _logOut();
+            if (!err) {
+                err = {
+                    error_description: 'Error. Server is not available.'
+                };
+            } else {
+                if (err.error) {
+                    err.error_description = err.error;
+                }
+            }
             deferred.reject(err);
         });
 
